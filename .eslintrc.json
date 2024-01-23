@@ -13,6 +13,7 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
+        "next/core-web-vitals",
         "plugin:react-hooks/recommended",
         "plugin:prettier/recommended"
     ],

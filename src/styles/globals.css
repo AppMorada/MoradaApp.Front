@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --background-contrast: 239 241 248;
+
+    --primary: 127 100 253; 
+    --neutral: 155 155 155;
+    --typography: 80 80 80;
+
+    --border: 230 224 255; 
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-typography;
+  }
+}
+

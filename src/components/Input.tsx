@@ -21,9 +21,8 @@ const Input: React.FC<InputProps> = ({
             <input
                 className="bg-background-contrast font-medium outline-none"
                 type={type}
-                name={name}
                 placeholder={placeholder}
-                {...register}
+                {...register(name)}
             />
         </div>
     )

@@ -3,7 +3,7 @@ export default function ResidentRegisterPage() {
    return (
         <section className="flex flex-col justify-center items-center min-h-screen">
             <img src="/assets/images/brand/logo.svg" alt="Logo MoradaApp" width={268} height={98} />
-            <form className="mt-[70px]">
+            <form className="mt-14">
                 <div className="flex flex-col justify-center items-center gap-4">
                     <div className="flex flex-col w-[443px] h-[67px] bg-background-contrast py-2 px-4 rounded-lg">
                         <label className="font-extrabold">Nome Completo</label>

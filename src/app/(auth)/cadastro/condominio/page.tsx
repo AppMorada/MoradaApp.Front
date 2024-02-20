@@ -29,7 +29,7 @@ export default function CondominiumRegisterPage() {
                 width={268}
                 height={98}
             />
-            <form className="mt-[70px]" onSubmit={handleSubmit(onSubmit)}>
+            <form className="mt-14" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col items-center justify-center gap-4">
                     <Input
                         label="Nome do usuário administrador"

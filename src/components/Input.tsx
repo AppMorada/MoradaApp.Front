@@ -1,10 +1,11 @@
+import { UseFormRegister } from 'react-hook-form'
+
 interface InputProps {
     label?: string
     type: 'text' | 'email' | 'password' | 'number'
     name: string
     placeholder: string
-    value: string
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    register: UseFormRegister<any>
 }
 
 const Input: React.FC<InputProps> = ({
@@ -12,8 +13,7 @@ const Input: React.FC<InputProps> = ({
     type,
     name,
     placeholder,
-    value,
-    onChange
+    register
 }) => {
     return (
         <div className="flex h-[67px] w-[443px] flex-col rounded-lg bg-background-contrast px-4 py-2">
@@ -23,8 +23,7 @@ const Input: React.FC<InputProps> = ({
                 type={type}
                 name={name}
                 placeholder={placeholder}
-                value={value}
-                onChange={onChange}
+                {...register}
             />
         </div>
     )

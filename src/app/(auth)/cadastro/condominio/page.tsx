@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import Link from 'next/link'
+import Input from '@/components/input'
 
-import Input from '@/components/Input'
 
-interface FormState {
+interface FormData {
     fullName: string
     cnpj: string
     email: string
@@ -15,21 +15,10 @@ interface FormState {
 }
 
 export default function CondominiumRegisterPage() {
-    const [form, setForm] = useState<FormState>({
-        fullName: '',
-        cnpj: '',
-        email: '',
-        password: '',
-        condominium: '',
-        address: ''
-    })
+    const { register, handleSubmit } = useForm<FormData>()
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-        setForm((prevState) => ({
-            ...prevState,
-            [name]: value
-        }))
+    const onSubmit = (data: FormData) => {
+        console.log(data)
     }
 
     return (
@@ -40,55 +29,49 @@ export default function CondominiumRegisterPage() {
                 width={268}
                 height={98}
             />
-            <form className="mt-[70px]">
+            <form className="mt-[70px]" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col items-center justify-center gap-4">
                     <Input
                         label="Nome do usuário administrador"
                         type="text"
                         name="fullName"
                         placeholder="Insira o nome do usuário"
-                        value={form.fullName}
-                        onChange={handleChange}
+                        register={register}
                     />
                     <Input
                         label="CNPJ"
                         type="text"
                         name="cnpj"
                         placeholder="XXX.XXX.XXX/0001-XX"
-                        value={form.cnpj}
-                        onChange={handleChange}
+                        register={register}
                     />
                     <Input
                         label="E-mail"
                         type="email"
                         name="email"
                         placeholder="Insira seu e-mail"
-                        value={form.email}
-                        onChange={handleChange}
+                        register={register}
                     />
                     <Input
                         label="Senha"
                         type="password"
                         name="password"
                         placeholder="Insira sua senha"
-                        value={form.password}
-                        onChange={handleChange}
+                        register={register}
                     />
                     <Input
                         label="Nome do Condomínio"
-                        type="password"
+                        type="text"
                         name="condominium"
                         placeholder="Insira o nome do condomínio"
-                        value={form.condominium}
-                        onChange={handleChange}
+                        register={register}
                     />
                     <Input
                         label="Endereço"
                         type="text"
                         name="address"
                         placeholder="Insira o endereço do condomínio"
-                        value={form.address}
-                        onChange={handleChange}
+                        register={register}
                     />
                 </div>
                 <div className="mt-8 flex flex-col items-center justify-center">

@@ -1,8 +1,6 @@
-export default function ResidentRegisterPage() {
+export default function ResidentRegisterPage() {   
 
-    
-
-    return (
+   return (
         <section className="flex flex-col justify-center items-center min-h-screen">
             <img src="/assets/images/brand/logo.svg" alt="Logo MoradaApp" width={268} height={98} />
             <form className="mt-[70px]">

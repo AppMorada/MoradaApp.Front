@@ -1,4 +1,7 @@
 export default function ResidentRegisterPage() {
+
+    
+
     return (
         <section className="flex flex-col justify-center items-center min-h-screen">
             <img src="/assets/images/brand/logo.svg" alt="Logo MoradaApp" width={268} height={98} />
@@ -7,18 +10,18 @@ export default function ResidentRegisterPage() {
                     <div className="flex flex-col w-[443px] h-[67px] bg-background-contrast py-2 px-4 rounded-lg">
                         <label className="font-extrabold">Nome Completo</label>
                         <input className="bg-background-contrast outline-none font-medium" type="text" placeholder='Insira o nome do usuário' />
-                    </div>  
-                    
+                    </div>
+
                     <div className="flex flex-col w-[443px] h-[67px] bg-background-contrast py-2 px-4 rounded-lg">
                         <label className="font-extrabold">CPF</label>
                         <input className="bg-background-contrast outline-none font-medium" type="text" placeholder='000.000.000-00' />
                     </div>
-                
+
                     <div className="flex flex-col w-[443px] h-[67px] bg-background-contrast py-2 px-4 rounded-lg">
                         <label className="font-extrabold">E-mail</label>
                         <input className="bg-background-contrast outline-none font-medium" type="email" placeholder='Insira seu e-mail' />
                     </div>
-                
+
                     <div className="flex flex-col w-[443px] h-[67px] bg-background-contrast py-2 px-4 rounded-lg">
                         <label className="font-extrabold">Senha</label>
                         <input className="bg-background-contrast outline-none font-medium" type="password" placeholder='Insira sua senha' />

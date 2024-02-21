@@ -1,9 +1,12 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
 import Link from 'next/link'
-import Input from '@/components/input'
 
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import z from 'zod'
+
+import Input from '@/components/input'
 
 interface FormData {
     fullName: string
@@ -14,11 +17,36 @@ interface FormData {
     address: string
 }
 
+const schema = z.object({
+    fullName: z.string().min(3, 'O nome deve ter no mínimo 3 caracteres'),
+    cnpj: z.string().length(14, 'O CNPJ deve conter 14 caracteres'),
+    email: z.string().min(1, 'O e-mail é obrigatório').email('Formato de e-mail inválido'),
+    password: z
+        .string()
+        .min(8, 'A senha deve ter no mínimo 8 caracteres')
+        .regex(/[a-z]/, 'A senha deve conter pelo menos uma letra minúscula')
+        .regex(/[A-Z]/, 'A senha deve conter pelo menos uma letra maiúscula')
+        .regex(
+            /[!@#$%^&*(),.?":{}|<>]/,
+            'A senha deve conter pelo menos um caractere especial'
+        ),
+    condominium: z.string().min(1, 'O nome do condomínio é obrigatório'),
+    address: z.string().min(1, 'O endereço é obrigatório')
+})
+
 export default function CondominiumRegisterPage() {
-    const { register, handleSubmit } = useForm<FormData>()
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm<FormData>({
+        resolver: zodResolver(schema)
+    })
 
     const onSubmit = (data: FormData) => {
         console.log(data)
+        reset()
     }
 
     return (
@@ -37,6 +65,7 @@ export default function CondominiumRegisterPage() {
                         name="fullName"
                         placeholder="Insira o nome do usuário"
                         register={register}
+                        error={errors.fullName?.message}
                     />
                     <Input
                         label="CNPJ"
@@ -44,13 +73,15 @@ export default function CondominiumRegisterPage() {
                         name="cnpj"
                         placeholder="XXX.XXX.XXX/0001-XX"
                         register={register}
-                    />
+                        error={errors.cnpj?.message}
+                        />
                     <Input
                         label="E-mail"
                         type="email"
                         name="email"
                         placeholder="Insira seu e-mail"
                         register={register}
+                        error={errors.email?.message}
                     />
                     <Input
                         label="Senha"
@@ -58,20 +89,23 @@ export default function CondominiumRegisterPage() {
                         name="password"
                         placeholder="Insira sua senha"
                         register={register}
-                    />
+                        error={errors.password?.message}
+                        />
                     <Input
                         label="Nome do Condomínio"
                         type="text"
                         name="condominium"
                         placeholder="Insira o nome do condomínio"
                         register={register}
-                    />
+                        error={errors.condominium?.message}
+                        />
                     <Input
                         label="Endereço"
                         type="text"
                         name="address"
                         placeholder="Insira o endereço do condomínio"
                         register={register}
+                        error={errors.address?.message}
                     />
                 </div>
                 <div className="mt-8 flex flex-col items-center justify-center">

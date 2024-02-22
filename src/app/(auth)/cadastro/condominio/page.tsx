@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { FaEyeSlash } from 'react-icons/fa'
 import { IoEyeSharp } from 'react-icons/io5'
 import z from 'zod'
-import Input from '@/components/input'
+import Input from '@/components/Input'
 
 interface FormData {
     fullName: string

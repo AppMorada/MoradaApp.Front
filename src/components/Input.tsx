@@ -2,7 +2,7 @@ import { UseFormRegister } from 'react-hook-form'
 
 interface InputProps {
     label?: string
-    type: 'text' | 'email' | 'password' | 'number'
+    type: string
     name: string
     placeholder: string
     register: UseFormRegister<any>

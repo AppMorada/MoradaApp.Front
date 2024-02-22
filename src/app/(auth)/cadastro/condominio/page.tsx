@@ -1,11 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { FaEyeSlash } from 'react-icons/fa'
+import { IoEyeSharp } from 'react-icons/io5'
 import z from 'zod'
-
 import Input from '@/components/input'
 
 interface FormData {
@@ -20,7 +21,10 @@ interface FormData {
 const schema = z.object({
     fullName: z.string().min(3, 'O nome deve ter no mínimo 3 caracteres'),
     cnpj: z.string().length(14, 'O CNPJ deve conter 14 caracteres'),
-    email: z.string().min(1, 'O e-mail é obrigatório').email('Formato de e-mail inválido'),
+    email: z
+        .string()
+        .min(1, 'O e-mail é obrigatório')
+        .email('Formato de e-mail inválido'),
     password: z
         .string()
         .min(8, 'A senha deve ter no mínimo 8 caracteres')
@@ -35,11 +39,13 @@ const schema = z.object({
 })
 
 export default function CondominiumRegisterPage() {
+    const [showPassword, setShowPassword] = useState(false)
+
     const {
         register,
         handleSubmit,
         reset,
-        formState: { errors },
+        formState: { errors }
     } = useForm<FormData>({
         resolver: zodResolver(schema)
     })
@@ -47,6 +53,10 @@ export default function CondominiumRegisterPage() {
     const onSubmit = (data: FormData) => {
         console.log(data)
         reset()
+    }
+
+    const passwordShow = () => {
+        setShowPassword(!showPassword)
     }
 
     return (
@@ -74,7 +84,7 @@ export default function CondominiumRegisterPage() {
                         placeholder="XXX.XXX.XXX/0001-XX"
                         register={register}
                         error={errors.cnpj?.message}
-                        />
+                    />
                     <Input
                         label="E-mail"
                         type="email"
@@ -83,14 +93,26 @@ export default function CondominiumRegisterPage() {
                         register={register}
                         error={errors.email?.message}
                     />
-                    <Input
-                        label="Senha"
-                        type="password"
-                        name="password"
-                        placeholder="Insira sua senha"
-                        register={register}
-                        error={errors.password?.message}
+                    <div className="relative">
+                        <Input
+                            label="Senha"
+                            type={showPassword ? 'text' : 'password'}
+                            name="password"
+                            placeholder="Insira sua senha"
+                            register={register}
+                            error={errors.password?.message}
                         />
+                        <div
+                            className="absolute right-5 top-6"
+                            onClick={passwordShow}
+                        >
+                            {showPassword ? (
+                                <FaEyeSlash size={20} />
+                            ) : (
+                                <IoEyeSharp size={20} />
+                            )}
+                        </div>
+                    </div>
                     <Input
                         label="Nome do Condomínio"
                         type="text"
@@ -98,7 +120,7 @@ export default function CondominiumRegisterPage() {
                         placeholder="Insira o nome do condomínio"
                         register={register}
                         error={errors.condominium?.message}
-                        />
+                    />
                     <Input
                         label="Endereço"
                         type="text"

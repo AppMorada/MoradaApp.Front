@@ -1,13 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { FaEyeSlash } from 'react-icons/fa'
 import { IoEyeSharp } from 'react-icons/io5'
 import z from 'zod'
-import Input from '@/components/Input'
+
+import Input from '@/components/input'
 
 interface FormData {
     fullName: string
@@ -51,7 +54,6 @@ export default function CondominiumRegisterPage() {
     })
 
     const onSubmit = (data: FormData) => {
-        console.log(data)
         reset()
     }
 
@@ -61,13 +63,13 @@ export default function CondominiumRegisterPage() {
 
     return (
         <section className="flex min-h-screen flex-col items-center justify-center">
-            <img
+            <Image
                 src="/assets/images/brand/logo.svg"
                 alt="Logo MoradaApp"
                 width={268}
                 height={98}
             />
-            <form className="mt-14" onSubmit={handleSubmit(onSubmit)}>
+            <form className="mt-12" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col items-center justify-center gap-4">
                     <Input
                         label="Nome do usuário administrador"
@@ -103,7 +105,7 @@ export default function CondominiumRegisterPage() {
                             error={errors.password?.message}
                         />
                         <div
-                            className="absolute right-5 top-6"
+                            className="absolute right-5 top-6 cursor-pointer"
                             onClick={passwordShow}
                         >
                             {showPassword ? (

@@ -4,15 +4,13 @@ import { useState } from 'react'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { FaEyeSlash } from 'react-icons/fa'
-import { IoEyeSharp } from 'react-icons/io5'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
-import Input from '@/components/ui/input'
+import {Input} from '@/components/ui/input'
 import { LinkLogin } from '@/components/ui/linkLogin'
 import { Logo } from '@/components/ui/logo'
-import PasswordInput from '@/components/ui/passwordInput'
+import { PasswordInput } from '@/components/ui/passwordInput'
 
 interface FormData {
    fullName: string

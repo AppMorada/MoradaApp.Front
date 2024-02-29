@@ -9,7 +9,7 @@ interface InputProps {
    error?: string
 }
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
    label,
    type,
    name,
@@ -39,4 +39,3 @@ const Input: React.FC<InputProps> = ({
    )
 }
 
-export default Input

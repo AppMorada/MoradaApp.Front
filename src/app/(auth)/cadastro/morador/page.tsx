@@ -7,7 +7,7 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { LinkLogin } from '@/components/ui/linkLogin'
-// import { Logo } from '@/components/ui/logo'
+import { Logo } from '@/components/ui/logo'
 import { PasswordInput } from '@/components/ui/passwordInput'
 
 const schema = z.object({
@@ -46,12 +46,9 @@ export default function ResidentRegisterPage() {
   }
 
   return (
-    <section className="flex h-screen flex-col items-center justify-center">
-      {/* <Logo /> */}
-      <form
-        className="mt-12 h-[67px] w-[443px]"
-        onSubmit={handleSubmit(onSubmit)}
-      >
+    <section className=" flex min-h-screen flex-col items-center justify-center ">
+      <Logo />
+      <form className="mt-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col items-center justify-center gap-4">
           <Input
             label=" Nome Completo"

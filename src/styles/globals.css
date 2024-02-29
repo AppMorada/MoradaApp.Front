@@ -7,12 +7,34 @@
     --background: 255 255 255;
     --background-contrast: 239 241 248;
 
-    --primary: 127 100 253; 
+    --primary: 127 100 253;
     --neutral: 155 155 155;
     --typography: 80 80 80;
 
-    --border: 230 224 255; 
+    --border: 230 224 255;
+    --problem: 235 44 44;
   }
+}
+
+@font-face {
+  font-family: 'NeverMindRounded-Regular';
+  src: url('/fonts/nevermind/NeverMindRounded-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeverMindRounded-SemiBold';
+  src: url('/fonts/nevermind/NeverMindRounded-SemiBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeverMindRounded-ExtraBold';
+  src: url('/fonts/nevermind/NeverMindRounded-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
 }
 
 @layer base {
@@ -20,4 +42,3 @@
     @apply bg-background text-typography;
   }
 }
-

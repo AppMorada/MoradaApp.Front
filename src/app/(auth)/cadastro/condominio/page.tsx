@@ -48,7 +48,7 @@ export default function CondominiumRegisterPage() {
   }
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center">
+    <section className="flex min-h-screen flex-col items-center justify-center ">
       <Logo />
 
       <form className="mt-12" onSubmit={handleSubmit(onSubmit)}>

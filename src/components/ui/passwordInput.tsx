@@ -19,9 +19,9 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     }
 
     return (
-      <>
+      <div className="w-full">
         <div
-          className={`flex w-full flex-col rounded-lg border-2 bg-background-contrast px-4 py-2 ${error ? 'border-red-500' : ''}`}
+          className={`flex h-[67px] w-[443px] flex-col rounded-lg border bg-background-contrast px-4 py-2 ${error ? 'border-red-500' : ''}`}
         >
           <label className="relative flex cursor-text flex-col font-extrabold">
             {label}
@@ -32,7 +32,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
               ref={ref}
             />
             <div
-              className="absolute right-5 top-6 cursor-pointer"
+              className="absolute right-0 top-4 cursor-pointer"
               onClick={toggleShowPassword}
             >
               {showPassword ? (
@@ -44,37 +44,11 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           </label>
         </div>
         {error && (
-          <span className="m-2 text-sm font-medium text-red-500">{error}</span>
+          <span className="text-problem m-2 text-sm font-medium">{error}</span>
         )}
-      </>
+      </div>
     )
   }
 )
 
 PasswordInput.displayName = 'PasswordInput'
-
-// export const PasswordInput = ({
-//   showPassword,
-//   passwordShow,
-//   register,
-//   errors
-// }: PasswordInputProps) => {
-//   return (
-//     <div className="relative">
-//       <Input
-//         label="Senha"
-//         type={showPassword ? 'text' : 'password'}
-//         name="password"
-//         placeholder="Insira sua senha"
-//         {...register('password')}
-//         error={errors.password?.message}
-//       />
-//       <div
-//         className="absolute right-5 top-6 cursor-pointer"
-//         onClick={passwordShow}
-//       >
-//         {showPassword ? <FaEyeSlash size={20} /> : <IoEyeSharp size={20} />}
-//       </div>
-//     </div>
-//   )
-// }

@@ -8,11 +8,11 @@ const config: Config = {
     ],
     theme: {
         fontFamily: {
-            inter: 'var(--inter-font)'
+            inter: 'var(--inter-font)',
+            nevermind: 'var(--nevermind-font)'
         },
         extend: {
             colors: {
-                border: 'rgb(var(--border))',
                 background: {
                     DEFAULT: 'rgb(var(--background))',
                     contrast: 'rgb(var(--background-contrast))'
@@ -23,9 +23,20 @@ const config: Config = {
                 neutral: {
                     DEFAULT: 'rgb(var(--neutral))'
                 },
+                title: {
+                    DEFAULT: 'rgb(var(--title))'
+                },
                 typography: {
                     DEFAULT: 'rgb(var(--typography))'
-                }
+                },
+                alert: {
+                    DEFAULT: 'rgb(var(--alert))'
+                },
+                danger: {
+                    DEFAULT: 'rgb(var(--danger))'
+                },
+
+                border: 'rgb(var(--border))'
             }
         }
     },

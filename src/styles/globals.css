@@ -9,15 +9,20 @@
 
     --primary: 127 100 253; 
     --neutral: 155 155 155;
+
+    --title: 208 192 41;
     --typography: 80 80 80;
 
-    --border: 230 224 255; 
+    --alert: 208 192 41;
+    --danger: 235 44 44;
+
+    --border: 230 224 255;
   }
 }
 
 @layer base {
   body {
-    @apply bg-background text-typography;
+    @apply bg-background text-typography font-nevermind;
   }
 }
 

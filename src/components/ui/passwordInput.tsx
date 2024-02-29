@@ -12,12 +12,12 @@ interface PasswordInputProps {
    errors: any
 }
 
-export const PasswordInput: React.FC<PasswordInputProps> = ({
+export const PasswordInput = ({
    showPassword,
    passwordShow,
    register,
    errors
-}) => {
+}: PasswordInputProps) => {
    return (
       <div className="relative">
          <Input

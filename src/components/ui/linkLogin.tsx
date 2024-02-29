@@ -5,7 +5,7 @@ interface LinkProps {
    href: string
 }
 
-export const LinkLogin: React.FC<LinkProps> = ({ text, href }) => {
+export const LinkLogin = ({ text, href }: LinkProps) => {
    return (
       <Link className="m-4 flex gap-1 font-medium" href={href}>
          <span className="font-medium">Já possui uma conta?</span>

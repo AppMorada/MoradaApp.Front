@@ -9,14 +9,14 @@ interface InputProps {
    error?: string
 }
 
-export const Input: React.FC<InputProps> = ({
+export const Input = ({
    label,
    type,
    name,
    placeholder,
    register,
    error
-}) => {
+}: InputProps) => {
    return (
       <div>
          <div

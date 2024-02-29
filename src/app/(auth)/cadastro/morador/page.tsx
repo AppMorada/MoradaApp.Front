@@ -7,17 +7,10 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
-import {Input} from '@/components/ui/input'
+import { Input } from '@/components/ui/input'
 import { LinkLogin } from '@/components/ui/linkLogin'
 import { Logo } from '@/components/ui/logo'
 import { PasswordInput } from '@/components/ui/passwordInput'
-
-interface FormData {
-   fullName: string
-   cpf: string
-   email: string
-   password: string
-}
 
 const schema = z.object({
    fullName: z.string().min(3, 'O nome deve ter no mínimo 3 caracteres'),
@@ -36,6 +29,8 @@ const schema = z.object({
          'A senha deve conter pelo menos um caractere especial'
       )
 })
+
+type FormData = z.infer<typeof schema>
 
 export default function ResidentRegisterPage() {
    const [showPassword, setShowPassword] = useState(false)

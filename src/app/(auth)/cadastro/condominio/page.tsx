@@ -12,15 +12,6 @@ import { LinkLogin } from '@/components/ui/linkLogin'
 import { Logo } from '@/components/ui/logo'
 import { PasswordInput } from '@/components/ui/passwordInput'
 
-interface FormData {
-   fullName: string
-   cnpj: string
-   email: string
-   password: string
-   condominium: string
-   address: string
-}
-
 const schema = z.object({
    fullName: z.string().min(3, 'O nome deve ter no mínimo 3 caracteres'),
    cnpj: z.string().length(14, 'O CNPJ deve conter 14 caracteres'),
@@ -40,6 +31,8 @@ const schema = z.object({
    condominium: z.string().min(1, 'O nome do condomínio é obrigatório'),
    address: z.string().min(1, 'O endereço é obrigatório')
 })
+
+type FormData = z.infer<typeof schema>
 
 export default function CondominiumRegisterPage() {
    const [showPassword, setShowPassword] = useState(false)

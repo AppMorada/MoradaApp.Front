@@ -6,18 +6,18 @@ import '@/styles/globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--inter-font' })
 
 export const metadata: Metadata = {
-    title: 'MoradaApp',
-    description: 'A melhor maneira de gerenciar seu condomínio!'
+   title: 'MoradaApp',
+   description: 'A melhor maneira de gerenciar seu condomínio!'
 }
 
 export default function RootLayout({
-    children
+   children
 }: Readonly<{
-    children: React.ReactNode
+   children: React.ReactNode
 }>) {
-    return (
-        <html lang="pt-br">
-            <body className={inter.variable}>{children}</body>
-        </html>
-    )
+   return (
+      <html lang="pt-br">
+         <body className={inter.variable}>{children}</body>
+      </html>
+   )
 }

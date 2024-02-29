@@ -1,14 +1,19 @@
-interface ButtonProps {
-   submit: string
-}
+import { ComponentProps, forwardRef } from 'react'
 
-export const Button = ({ submit }: ButtonProps) => {
-   return (
+interface ButtonProps extends ComponentProps<'button'> {}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, ...props }, ref) => {
+    return (
       <button
-         className="h-12 w-[442px] rounded-lg bg-primary font-extrabold text-background"
-         type="submit"
+        className="h-12 w-full rounded-lg bg-primary font-extrabold text-background"
+        ref={ref}
+        {...props}
       >
-         {submit}
+        {children}
       </button>
-   )
-}
+    )
+  }
+)
+
+Button.displayName = 'Button'

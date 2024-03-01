@@ -57,7 +57,10 @@ export default function ResidentRegisterPage() {
   return (
     <section className="relative mx-auto flex h-dvh max-w-[1440px] flex-col items-center justify-center">
       <Logo />
-      <form className="mt-12" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="mt-12 w-full px-4 sm:w-[444px]"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="flex flex-col items-center justify-center gap-4">
           <Input
             label=" Nome Completo"

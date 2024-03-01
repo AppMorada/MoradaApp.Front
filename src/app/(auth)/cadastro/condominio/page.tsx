@@ -59,7 +59,10 @@ export default function CondominiumRegisterPage() {
     <section className="flex min-h-screen flex-col items-center justify-center">
       <Logo />
 
-      <form className="mt-12" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="mt-12 w-full px-4 sm:w-[444px]"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="flex flex-col items-center justify-center gap-4">
           <Input
             label="Nome do usuário administrador"

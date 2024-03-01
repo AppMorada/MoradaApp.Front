@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -8,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { LinkLogin } from '@/components/ui/linkLogin'
 import { Logo } from '@/components/ui/logo'
+import { Modal } from '@/components/ui/modal'
 import { PasswordInput } from '@/components/ui/passwordInput'
 
 const schema = z.object({
@@ -31,10 +34,11 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 export default function ResidentRegisterPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors }
   } = useForm<FormData>({
     resolver: zodResolver(schema)
@@ -42,7 +46,12 @@ export default function ResidentRegisterPage() {
 
   const onSubmit = (data: FormData) => {
     console.log(data)
-    reset()
+
+    setIsModalOpen(true)
+  }
+
+  const onCloseModal = () => {
+    setIsModalOpen(false)
   }
 
   return (
@@ -83,6 +92,15 @@ export default function ResidentRegisterPage() {
           <LinkLogin href="/login" text="Login" />
         </div>
       </form>
+
+      {isModalOpen && (
+        <Modal
+          onClose={onCloseModal}
+          title="Cadastrado realizado com sucesso!"
+          paragraph="Faça login no nosso aplicativo para ter acesso 
+          completo aos nossos serviços "
+        />
+      )}
     </section>
   )
 }

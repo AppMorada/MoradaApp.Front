@@ -1,3 +1,3 @@
 export default function CondominiumRegisterPage() {
-    return <h1>Cadastro condomínio</h1>
+  return <h1>Cadastro condomínio</h1>
 }

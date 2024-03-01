@@ -13,17 +13,17 @@ const inter = Inter({
 const nevermind = localFont({
   src: [
     {
-      path: './_fonts/nevermind-rounded/NeverMindDisplay-Bold-BF6501204d66b5c.ttf',
+      path: './_fonts/nevermind-rounded/NeverMindRounded-Bold.ttf',
       weight: '700',
       style: 'normal'
     },
     {
-      path: './_fonts/nevermind-rounded/NeverMindDisplay-Extrabold-BF65012052803af.ttf',
+      path: './_fonts/nevermind-rounded/NeverMindRounded-ExtraBold.ttf',
       weight: '800',
       style: 'normal'
     },
     {
-      path: './_fonts/nevermind-rounded/NeverMindDisplay-Medium-BF6501205310ee9.ttf',
+      path: './_fonts/nevermind-rounded/NeverMindRounded-Medium.ttf',
       weight: '500',
       style: 'normal'
     }

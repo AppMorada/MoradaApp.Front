@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
@@ -8,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { LinkLogin } from '@/components/ui/linkLogin'
 import { Logo } from '@/components/ui/logo'
+import { Modal } from '@/components/ui/modal'
 import { PasswordInput } from '@/components/ui/passwordInput'
 
 const schema = z.object({
@@ -33,10 +36,11 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 export default function CondominiumRegisterPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors }
   } = useForm<FormData>({
     resolver: zodResolver(schema)
@@ -44,11 +48,15 @@ export default function CondominiumRegisterPage() {
 
   const onSubmit = (data: FormData) => {
     console.log(data)
-    reset()
+    setIsModalOpen(true)
+  }
+
+  const onCloseModal = () => {
+    setIsModalOpen(false)
   }
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center ">
+    <section className="flex min-h-screen flex-col items-center justify-center">
       <Logo />
 
       <form className="mt-12" onSubmit={handleSubmit(onSubmit)}>
@@ -100,6 +108,15 @@ export default function CondominiumRegisterPage() {
           <LinkLogin href="/login" text="Login" />
         </div>
       </form>
+
+      {isModalOpen && (
+        <Modal
+          onClose={onCloseModal}
+          title="Verifique seu e-mail"
+          paragraph="A administração do seu condomínio está a um passo de se tornar mais eficaz.
+          Clique no botão abaixo para verificar seu e-mail e confirmar seu cadastro."
+        />
+      )}
     </section>
   )
 }

@@ -11,8 +11,8 @@ interface ModalProps {
 
 export const Modal = ({ onClose, paragraph, title }: ModalProps) => {
   return (
-    <div className="fixed left-0 top-0 z-10 my-auto flex h-full w-full items-center justify-center bg-black bg-opacity-100">
-      <div className="relative flex h-3/6 w-10/12 flex-col items-center justify-center gap-16 rounded-lg bg-white p-8">
+    <div className="fixed left-0 top-0 z-10 my-auto flex h-full w-full items-center justify-center bg-black bg-opacity-70">
+      <div className="max-w-screen relative flex max-h-screen flex-col items-center justify-center gap-16 rounded-lg bg-white p-8">
         <button
           className="absolute right-3 top-3"
           type="button"

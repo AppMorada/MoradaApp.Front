@@ -96,7 +96,7 @@ export default function CondominiumRegisterPage() {
           />
         </div>
         <div className="mt-8 flex flex-col items-center justify-center">
-          <Button>Cadastrar</Button>
+          <Button>Confirmar Cadastro</Button>
           <LinkLogin href="/login" text="Login" />
         </div>
       </form>

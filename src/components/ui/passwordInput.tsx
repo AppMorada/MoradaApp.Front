@@ -18,12 +18,12 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     return (
       <div className="w-full">
         <div
-          className={`flex h-[67px] w-[443px] flex-col rounded-lg border bg-background-contrast px-4 py-2 ${error ? 'border-red-500' : ''}`}
+          className={`flex h-[67px] w-[443px] flex-col rounded-lg border-2 bg-background-contrast px-4 py-2 ${error ? 'border-red-500' : ''}`}
         >
-          <label className="relative flex cursor-text flex-col font-extrabold">
+          <label className="relative flex flex-col font-extrabold">
             {label}
             <input
-              className="bg-background-contrast font-medium outline-none"
+              className="w-full bg-background-contrast font-medium outline-none"
               type={showPassword ? 'text' : 'password'}
               {...props}
               ref={ref}
@@ -62,7 +62,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           </label>
         </div>
         {error && (
-          <span className="text-problem m-2 text-sm font-medium">{error}</span>
+          <span className="text-danger m-2 text-sm font-medium">{error}</span>
         )}
       </div>
     )

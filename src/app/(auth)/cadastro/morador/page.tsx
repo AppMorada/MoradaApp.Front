@@ -46,7 +46,7 @@ export default function ResidentRegisterPage() {
   }
 
   return (
-    <section className=" flex min-h-screen flex-col items-center justify-center ">
+    <section className="relative mx-auto flex h-dvh max-w-[1440px] flex-col items-center justify-center">
       <Logo />
       <form className="mt-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col items-center justify-center gap-4">
@@ -79,7 +79,7 @@ export default function ResidentRegisterPage() {
           />
         </div>
         <div className="mt-8 flex flex-col items-center justify-center">
-          <Button>Cadastrar</Button>
+          <Button>Confirmar Cadastro</Button>
           <LinkLogin href="/login" text="Login" />
         </div>
       </form>

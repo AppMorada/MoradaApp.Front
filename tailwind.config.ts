@@ -28,8 +28,8 @@ const config: Config = {
         typography: {
           DEFAULT: 'rgb(var(--typography))'
         },
-        problem: {
-          DEFAULT: 'rgb(var(--problem))'
+        danger: {
+          DEFAULT: 'rgb(var(--danger))'
         }
       }
     }

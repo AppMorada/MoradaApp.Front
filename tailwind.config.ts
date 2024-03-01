@@ -8,9 +8,8 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      'nevermind-regular': ['NeverMindRounded-Regular', 'sans-serif'],
-      'nevermind-semibold': ['NeverMindRounded-SemiBold', 'sans-serif'],
-      'nevermind-extrabold': ['NeverMindRounded-ExtraBold', 'sans-serif']
+      inter: ['var(--font-inter)'],
+      nevermind: ['var(--font-nevermind)']
     },
     extend: {
       colors: {

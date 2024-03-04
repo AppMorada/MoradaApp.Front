@@ -61,7 +61,7 @@ export default function ResidentRegisterPage() {
   }
 
   return (
-    <section className="relative mx-auto flex h-dvh max-w-[1440px] flex-col items-center justify-center">
+    <section className="flex min-h-screen flex-col items-center justify-center">
       <Logo />
       <form
         className="mt-12 w-full px-4 sm:w-[444px]"
@@ -98,8 +98,8 @@ export default function ResidentRegisterPage() {
           <PasswordInput
             label="Cnfirmar Senha"
             placeholder="Confirme sua senha"
-            {...register('confirmPassword')}
-            error={errors.confirmPassword?.message}
+            {...register('password')}
+            error={errors.password?.message}
           />
         </div>
         <div className="mt-8 flex flex-col items-center justify-center">

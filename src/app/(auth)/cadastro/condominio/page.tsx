@@ -100,8 +100,8 @@ export default function CondominiumRegisterPage() {
           <PasswordInput
             label="Cnfirmar Senha"
             placeholder="Confirme sua senha"
-            {...register('confirmPassword')}
-            error={errors.confirmPassword?.message}
+            {...register('password')}
+            error={errors.password?.message}
           />
           <Input
             label="Nome do Condomínio"

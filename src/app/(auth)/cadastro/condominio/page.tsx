@@ -13,25 +13,31 @@ import { Logo } from '@/components/ui/logo'
 import { Modal } from '@/components/ui/modal'
 import { PasswordInput } from '@/components/ui/passwordInput'
 
-const schema = z.object({
-  fullName: z.string().min(3, 'O nome deve ter no mínimo 3 caracteres'),
-  cnpj: z.string().length(14, 'O CNPJ deve conter 14 caracteres'),
-  email: z
-    .string()
-    .min(1, 'O e-mail é obrigatório')
-    .email('Formato de e-mail inválido'),
-  password: z
-    .string()
-    .min(8, 'A senha deve ter no mínimo 8 caracteres')
-    .regex(/[a-z]/, 'A senha deve conter pelo menos uma letra minúscula')
-    .regex(/[A-Z]/, 'A senha deve conter pelo menos uma letra maiúscula')
-    .regex(
-      /[!@#$%^&*(),.?":{}|<>]/,
-      'A senha deve conter pelo menos um caractere especial'
-    ),
-  condominium: z.string().min(1, 'O nome do condomínio é obrigatório'),
-  address: z.string().min(1, 'O endereço é obrigatório')
-})
+const schema = z
+  .object({
+    fullName: z.string().min(3, 'O nome deve ter no mínimo 3 caracteres'),
+    cnpj: z.string().length(14, 'O CNPJ deve conter 14 caracteres'),
+    email: z
+      .string()
+      .min(1, 'O e-mail é obrigatório')
+      .email('Formato de e-mail inválido'),
+    password: z
+      .string()
+      .min(8, 'A senha deve ter no mínimo 8 caracteres')
+      .regex(/[a-z]/, 'A senha deve conter pelo menos uma letra minúscula')
+      .regex(/[A-Z]/, 'A senha deve conter pelo menos uma letra maiúscula')
+      .regex(
+        /[!@#$%^&*(),.?":{}|<>]/,
+        'A senha deve conter pelo menos um caractere especial'
+      ),
+    condominium: z.string().min(1, 'O nome do condomínio é obrigatório'),
+    address: z.string().min(1, 'O endereço é obrigatório'),
+    confirmPassword: z.string()
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'As senhas não coincidem',
+    path: ['confirmPassword']
+  })
 
 type FormData = z.infer<typeof schema>
 
@@ -90,6 +96,12 @@ export default function CondominiumRegisterPage() {
             placeholder="Insira sua senha"
             {...register('password')}
             error={errors.password?.message}
+          />
+          <PasswordInput
+            label="Cnfirmar Senha"
+            placeholder="Confirme sua senha"
+            {...register('confirmPassword')}
+            error={errors.confirmPassword?.message}
           />
           <Input
             label="Nome do Condomínio"

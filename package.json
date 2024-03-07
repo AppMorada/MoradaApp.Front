@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings=0",
-    "prepare": "husky"
+    "prettier": "prettier --write",
+    "lint:fix": "eslint --fix",
+    "prepare": "husky",
+    "commit": "cz"
   },
   "husky": {
     "hooks": {
@@ -15,9 +18,15 @@
     }
   },
   "lint-staged": {
-    "src/**/*.+(js|jsx|ts|tsx|md|mdx|yml|yaml)": [
-      "npm run lint --fix"
+    "src/**/*.+(js|jsx|ts|tsx|md|mdx)": [
+      "npm run prettier",
+      "npm run lint:fix"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
@@ -33,6 +42,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.0.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -40,6 +50,9 @@
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "autoprefixer": "^10.0.1",
+    "commitizen": "^4.3.0",
+    "commitlint": "^19.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",

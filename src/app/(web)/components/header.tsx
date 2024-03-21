@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 
+import { navbarSections } from '@/config/site'
 import { Logo } from '@/components/ui/logo'
 import { Button, DropdownMenu, Icon } from '@/components/ui'
 
@@ -10,12 +11,18 @@ export const Header = () => {
     <div className="flex h-20 w-full items-center justify-between bg-background-contrast">
       <div className="container mx-auto flex items-center justify-between px-8">
         <Logo className="block h-16 w-40" />
-        <div className="flex gap-16">
+        <nav className="flex gap-16">
           <ul className="flex items-center justify-between gap-8">
-            <li>Serviços</li>
-            <li>Quem Somos</li>
-            <li>Funcionalidades</li>
-            <li>Login</li>
+            {navbarSections.map(({ name, href }) => (
+              <li key={href}>
+                <Link
+                  className="transition-colors hover:text-primary"
+                  href={href}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
           </ul>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
@@ -33,7 +40,7 @@ export const Header = () => {
               </DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
-        </div>
+        </nav>
       </div>
     </div>
   )

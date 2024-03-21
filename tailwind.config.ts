@@ -11,6 +11,16 @@ const config: Config = {
       inter: ['var(--font-inter)'],
       nevermind: ['var(--font-nevermind)']
     },
+    container: {
+      center: true,
+      screens: {
+        sm: '600px',
+        md: '728px',
+        lg: '984px',
+        xl: '1240px',
+        '2xl': '1440px'
+      }
+    },
     extend: {
       colors: {
         border: 'rgb(var(--border))',
